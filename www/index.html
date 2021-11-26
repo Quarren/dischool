@@ -47,7 +47,7 @@
         </div>
         <div class="list">
           <ul>
-            <li><a href="#" id="sign-in-btn" class="list-button">Sign In</a></li>
+            <li><a href="#" id="log-in-btn" class="list-button">Log In</a></li>
           </ul>
           <div class="block-footer">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -109,8 +109,8 @@
                           var clone = lsTemplate.content.cloneNode(true);
                           pageContent.appendChild(clone);
                           //pageContent.lastElementChild.setAttribute('id', '');
-                          var signInBtn = document.getElementById('sign-in-btn');
-                          signInBtn.addEventListener('click', function() {
+                          var logInBtn = document.getElementById('log-in-btn');
+                          logInBtn.addEventListener('click', function() {
                             console.log(pageContent.lastElementChild);
                             pageContent.removeChild(pageContent.lastElementChild);
                             
