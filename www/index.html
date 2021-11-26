@@ -19,6 +19,8 @@
 
 <body>
 <!-- début des templates -->
+
+<!--template login-screen-->
 <template id='login-screen-template'>
   <div class="page-content login-screen-content">
     <div class="login-screen-title">Dischool</div>
@@ -45,7 +47,7 @@
         </div>
         <div class="list">
           <ul>
-            <li><a href="#" class="list-button">Sign In</a></li>
+            <li><a href="#" id="sign-in-btn" class="list-button">Sign In</a></li>
           </ul>
           <div class="block-footer">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -55,6 +57,11 @@
       </form>
     </div>
   </div>
+</template>
+
+<!-- template main-page -->
+<template id='main-page-template'>
+
 </template>
 
 
@@ -87,7 +94,7 @@
                 </div>
         
                 <!-- Scrollable page content -->
-                <div id="pagecontent" class="page-content">
+                <div id="page-content" class="page-content">
 
                     <p>Page content goes here</p>
 
@@ -96,10 +103,19 @@
                         <script>
                           var lsTemplate = document.getElementById('login-screen-template');
                           //console.log(lsTemplate);
-                          var pageContent = document.getElementById('pagecontent');
+                          var pageContent = document.getElementById('page-content');
+                          var mainPage = document.getElementById('main-page-template')
                           //console.log(pageContent);
                           var clone = lsTemplate.content.cloneNode(true);
                           pageContent.appendChild(clone);
+                          //pageContent.lastElementChild.setAttribute('id', '');
+                          var signInBtn = document.getElementById('sign-in-btn');
+                          signInBtn.addEventListener('click', function() {
+                            console.log(pageContent.lastElementChild);
+                            pageContent.removeChild(pageContent.lastElementChild);
+                            
+                            // todo : add template
+                          });
                         </script>
 
                     <!-- Link to another page -->
