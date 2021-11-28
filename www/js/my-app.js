@@ -54,10 +54,24 @@ function addMessage(msg) {
   pageMessages.appendChild(clone);
   console.log(pageMessages.lastElementChild.children[0].children[0].children[0]);
   console.log(msg);
-  pageMessages.lastElementChild.children[0].children[0].children[0].innerText = msg; //todo
+  pageMessages.lastElementChild.children[0].children[0].children[0].innerText = msg;
 }
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+var reply = [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+]
 
 // génère un message de réponse dans la conversation
 function msgAutoReply() {
-
+  var pageMessages = document.getElementById('page-messages');
+  var clone = document.getElementById('template-msg-recu').content.cloneNode(true);
+  pageMessages.appendChild(clone);
+  pageMessages.lastElementChild.children[0].children[0].children[0].innerText = reply[getRandomInt(4)];
 }

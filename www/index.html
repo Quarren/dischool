@@ -141,9 +141,22 @@
 </div>
 </template>
 
+<!-- template msg sent -->
 <template id='template-msg-sent'>
   <div class="message message-sent">
     <div class="message-content">
+      <div class="message-bubble">
+        <div class="message-text"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- template msg recu -->
+<template id='template-msg-recu'>
+  <div class="message message-received">
+    <div class="message-content">
+      <!-- Bubble with text -->
       <div class="message-bubble">
         <div class="message-text"></div>
       </div>
@@ -208,6 +221,9 @@
                             var sendAnchor = document.getElementById('sendAnchor');
                             sendAnchor.addEventListener('click', function() {
                               addMessage(msgTxtArea.value);
+                              setTimeout(function() {
+                                msgAutoReply();
+                              },2500);
                             })
                           });
                         </script>
