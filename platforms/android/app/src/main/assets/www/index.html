@@ -19,44 +19,124 @@
 
 <body>
 <!-- début des templates -->
+
+<!--template login-screen-->
 <template id='login-screen-template'>
   <div class="page-content login-screen-content">
     <div class="login-screen-title">Dischool</div>
-    <form>
-      <div class="list">
-        <ul>
-          <li class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">Username</div>
-              <div class="item-input-wrap">
-                <input type="text" name="username" placeholder="Your username" />
+      <form>
+        <div class="list">
+          <ul>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Username</div>
+                <div class="item-input-wrap">
+                  <input type="text" name="username" placeholder="Your username" />
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">Password</div>
-              <div class="item-input-wrap">
-                <input type="password" name="password" placeholder="Your password" />
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Password</div>
+                <div class="item-input-wrap">
+                  <input type="password" name="password" placeholder="Your password" />
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="list">
-        <ul>
-          <li><a href="#" class="list-button">Sign In</a></li>
-        </ul>
-        <div class="block-footer">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p><a href="#" class="link back">Close Login Screen</a></p>
+            </li>
+          </ul>
         </div>
-      </div>
-    </form>
+        <div class="list">
+          <ul>
+            <li><a href="#" id="log-in-btn" class="list-button">Log In</a></li>
+          </ul>
+          <div class="block-footer">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p><a href="#" class="link back">Close Login Screen</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 </template>
 
+<!-- template main-page -->
+<template id='main-page-template'>
+  
+          <!-- Nested panel -->
+          <div class="panel panel-left panel-cover panel-init theme-dark" id="panel-nested"
+            data-container-el="#panel-page">
+            <div class="page">
+              <div class="page-content">
+                <div class="block block-strong">
+                  <p>This is page-nested Panel.</p>
+
+                  <p><a href="#" class="panel-close">Close me</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="page-content">
+
+            <div class="page">
+              <div class="page-content messages-content">
+                <div id="page-messages" class="messages">
+                  <!-- Date stamp -->
+                  <div class="messages-title"><b>Sunday, Feb 9</b> 12:58</div>
+            
+                  <!-- Sent message (by default - green and on right side) -->
+                  <div class="message message-sent">
+                    <div class="message-content">
+                      <!-- Bubble with text -->
+                      <div class="message-bubble">
+                        <div class="message-text">Hi, Kate</div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <!-- Another sent message -->
+                  <div class="message message-sent">
+                    <div class="message-content">
+                      <div class="message-bubble">
+                        <div class="message-text">How are you?</div>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <!-- Received message (by default - grey on left side) -->
+                  <div class="message message-received">
+                    <!-- Sender avatar -->
+                    <div class="message-avatar" style="background-image:url(path/to/avatar.jpg)"></div>
+                    <div class="message-content">
+                      <!-- Sender name -->
+                      <div class="message-name">Blue Ninja</div>
+                      <!-- Bubble with text -->
+                      <div class="message-bubble">
+                        <div class="message-text">Hi there, I am also fine, thanks! And how are you?</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!--</div>-->
+
+            <div class="block block-strong">
+              <p><a class="button button-fill panel-open" href="#" data-panel="#panel-nested">Nested panel</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</template>
+
+<template id='template-msg-sent'>
+  <div class="message message-sent">
+    <div class="message-content">
+      <div class="message-bubble">
+        <div class="message-text"></div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <!-- fin des templates -->
 
@@ -87,7 +167,7 @@
                 </div>
         
                 <!-- Scrollable page content -->
-                <div id="pagecontent" class="page-content">
+                <div id="page-content" class="page-content">
 
                     <p>Page content goes here</p>
 
@@ -96,10 +176,21 @@
                         <script>
                           var lsTemplate = document.getElementById('login-screen-template');
                           //console.log(lsTemplate);
-                          var pageContent = document.getElementById('pagecontent');
-                          //console.log(pageContent);
+                          let pageContent = document.getElementById('page-content');
+                          var mainPage = document.getElementById('main-page-template')
+                          console.log(pageContent);
                           var clone = lsTemplate.content.cloneNode(true);
                           pageContent.appendChild(clone);
+                          //pageContent.lastElementChild.setAttribute('id', '');
+                          var logInBtn = document.getElementById('log-in-btn');
+                          logInBtn.addEventListener('click', function() {
+                            //console.log(pageContent.lastElementChild);
+                            pageContent.removeChild(pageContent.lastElementChild);
+                            
+                            // todo : add template
+                            let clone2 = mainPage.content.cloneNode(true);
+                            pageContent.appendChild(clone2);
+                          });
                         </script>
 
                     <!-- Link to another page -->

@@ -5,11 +5,8 @@
 var $$ = Dom7;
 
 var app = new Framework7({
-    // App root element
     root: '#app',
-    // App Name
     name: 'My App',
-    // App id
     id: 'com.myapp.test',
     // Enable swipe panel
     panel: {
@@ -26,7 +23,7 @@ var app = new Framework7({
   });
 
 var mainView = app.views.create('.view-main');
-var pageContent = document.getElementById('pagecontent');
+//var pageContent = document.getElementById('pagecontent');
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
@@ -46,6 +43,18 @@ $$(document).on('page:init', '.page[data-name="about"]', function (e) {
     console.log(e);
 })
 
-pageContent.append(app.loginScreen.create({
-  content: '<div class="page-content login-screen-content"><div class="login-screen-title">Dischool</div><form><div class="list"><ul><li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Username</div><div class="item-input-wrap"><input type="text" name="username" placeholder="Your username" /></div></div></li><li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Password</div><div class="item-input-wrap"><input type="password" name="password" placeholder="Your password" /></div></div></li></ul></div><div class="list"><ul><li><a href="#" class="list-button">Sign In</a></li></ul><div class="block-footer"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p><a href="#" class="link back">Close Login Screen</a></p></div></div></form></div></div>'
-}));
+// Récupération des id
+var msgSentTemplate = document.getElementById('template-msg-sent');
+
+// ajoute le message tapé par l'utilisateur dans la conversation
+function addMessage(msg) {
+  var pageMessages = document.getElementById('page-messages');
+  var clone = pageMessages.content.cloneNode(true);
+  pageMessages.appendChild(clone);
+  pageMessages.lastElementChild.children[1].children[1].innerHTML = msg; //todo
+}
+
+// génère un message de réponse dans la conversation
+function msgAutoReply() {
+
+}
