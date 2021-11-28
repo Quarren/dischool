@@ -62,70 +62,83 @@
 <!-- template main-page -->
 <template id='main-page-template'>
   
-          <!-- Nested panel -->
-          <div class="panel panel-left panel-cover panel-init theme-dark" id="panel-nested"
-            data-container-el="#panel-page">
-            <div class="page">
-              <div class="page-content">
-                <div class="block block-strong">
-                  <p>This is page-nested Panel.</p>
+  <!-- Nested panel -->
+  <div class="panel panel-left panel-cover panel-init theme-dark" id="panel-nested"
+    data-container-el="#panel-page">
+    <div class="page">
+      <div class="page-content">
+        <div class="block block-strong">
+          <p>This is page-nested Panel.</p>
 
-                  <p><a href="#" class="panel-close">Close me</a></p>
-                </div>
+          <p><a href="#" class="panel-close">Close me</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+
+    <div class="page">
+      <div class="page-content messages-content">
+        <div id="page-messages" class="messages">
+          <!-- Date stamp -->
+          <div class="messages-title"><b>Sunday, Feb 9</b> 12:58</div>
+    
+          <!-- Sent message (by default - green and on right side) -->
+          <div class="message message-sent">
+            <div class="message-content">
+              <!-- Bubble with text -->
+              <div class="message-bubble">
+                <div class="message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
               </div>
             </div>
           </div>
-  
-          <div class="page-content">
-
-            <div class="page">
-              <div class="page-content messages-content">
-                <div id="page-messages" class="messages">
-                  <!-- Date stamp -->
-                  <div class="messages-title"><b>Sunday, Feb 9</b> 12:58</div>
-            
-                  <!-- Sent message (by default - green and on right side) -->
-                  <div class="message message-sent">
-                    <div class="message-content">
-                      <!-- Bubble with text -->
-                      <div class="message-bubble">
-                        <div class="message-text">Hi, Kate</div>
-                      </div>
-                    </div>
-                  </div>
-            
-                  <!-- Another sent message -->
-                  <div class="message message-sent">
-                    <div class="message-content">
-                      <div class="message-bubble">
-                        <div class="message-text">How are you?</div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <!-- Received message (by default - grey on left side) -->
-                  <div class="message message-received">
-                    <!-- Sender avatar -->
-                    <div class="message-avatar" style="background-image:url(path/to/avatar.jpg)"></div>
-                    <div class="message-content">
-                      <!-- Sender name -->
-                      <div class="message-name">Blue Ninja</div>
-                      <!-- Bubble with text -->
-                      <div class="message-bubble">
-                        <div class="message-text">Hi there, I am also fine, thanks! And how are you?</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    
+          <!-- Another sent message -->
+          <div class="message message-sent">
+            <div class="message-content">
+              <div class="message-bubble">
+                <div class="message-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</div>
               </div>
-            <!--</div>-->
+            </div>
+          </div>
 
-            <div class="block block-strong">
-              <p><a class="button button-fill panel-open" href="#" data-panel="#panel-nested">Nested panel</a></p>
+          <!-- Received message (by default - grey on left side) -->
+          <div class="message message-received">
+            <!-- Sender avatar -->
+            <div class="message-avatar" style="background-image:url(path/to/avatar.jpg)"></div>
+            <div class="message-content">
+              <!-- Sender name -->
+              <div class="message-name">Blue Ninja</div>
+              <!-- Bubble with text -->
+              <div class="message-bubble">
+                <div class="message-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+    <div class="block block-strong">
+      <!--
+      <div class=''>
+        <p></p><input id='msg-input' class=''></p>
+      </div> 
+      -->
+      <div class="toolbar messagebar">
+        <div class="toolbar-inner">
+          <div class="messagebar-area">
+            <textarea id='msg-txtarea' class="resizable" placeholder="Message"></textarea>
+          </div>
+          <a id='sendAnchor' class="link send-link" href="#" @click=${sendMessage}>Send</a>
+        </div>
+      </div>
+
+      <p><a class="button button-fill panel-open" href="#" data-panel="#panel-nested">Nested panel</a></p>
+    </div>
+  </div>
+</div>
+</div>
 </template>
 
 <template id='template-msg-sent'>
@@ -190,6 +203,12 @@
                             // todo : add template
                             let clone2 = mainPage.content.cloneNode(true);
                             pageContent.appendChild(clone2);
+                            //console.log(document.getElementById('page-messages'));
+                            var msgTxtArea = document.getElementById('msg-txtarea');
+                            var sendAnchor = document.getElementById('sendAnchor');
+                            msgInput.addEventListener('click', function() {
+                              addMessage(msgTxtArea.innerText);
+                            })
                           });
                         </script>
 

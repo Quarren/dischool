@@ -46,9 +46,15 @@ $$(document).on('page:init', '.page[data-name="about"]', function (e) {
 // Récupération des id
 var msgSentTemplate = document.getElementById('template-msg-sent');
 
-function addMessage(mess) {
+// ajoute le message tapé par l'utilisateur dans la conversation
+function addMessage(msg) {
   var pageMessages = document.getElementById('page-messages');
   var clone = pageMessages.content.cloneNode(true);
   pageMessages.appendChild(clone);
-  pageMessages.lastElementChild.children; //todo
+  pageMessages.lastElementChild.children[1].children[1].innerHTML = msg; //todo
+}
+
+// génère un message de réponse dans la conversation
+function msgAutoReply() {
+
 }

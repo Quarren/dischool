@@ -49,9 +49,12 @@ var msgSentTemplate = document.getElementById('template-msg-sent');
 // ajoute le message tapé par l'utilisateur dans la conversation
 function addMessage(msg) {
   var pageMessages = document.getElementById('page-messages');
-  var clone = pageMessages.content.cloneNode(true);
+  var msgSentTemp = document.getElementById('template-msg-sent');
+  var clone = msgSentTemp.content.cloneNode(true);
   pageMessages.appendChild(clone);
-  pageMessages.lastElementChild.children[1].children[1].innerHTML = msg; //todo
+  console.log(pageMessages.lastElementChild.children[0].children[0].children[0]);
+  console.log(msg);
+  pageMessages.lastElementChild.children[0].children[0].children[0].innerText = msg; //todo
 }
 
 // génère un message de réponse dans la conversation

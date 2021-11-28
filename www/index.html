@@ -204,9 +204,11 @@
                             let clone2 = mainPage.content.cloneNode(true);
                             pageContent.appendChild(clone2);
                             //console.log(document.getElementById('page-messages'));
-                            var msgInput = document.getElementById('msg-txtarea');
+                            var msgTxtArea = document.getElementById('msg-txtarea');
                             var sendAnchor = document.getElementById('sendAnchor');
-                            msgInput.addEventListener('')
+                            sendAnchor.addEventListener('click', function() {
+                              addMessage(msgTxtArea.value);
+                            })
                           });
                         </script>
 
