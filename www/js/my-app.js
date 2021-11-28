@@ -75,3 +75,7 @@ function msgAutoReply() {
   pageMessages.appendChild(clone);
   pageMessages.lastElementChild.children[0].children[0].children[0].innerText = reply[getRandomInt(4)];
 }
+
+function clearContents(element) {
+  element.value = '';
+}

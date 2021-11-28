@@ -128,7 +128,7 @@
       <div class="toolbar messagebar">
         <div class="toolbar-inner">
           <div class="messagebar-area">
-            <textarea id='msg-txtarea' class="resizable" placeholder="Message"></textarea>
+            <textarea id='msg-txtarea' class="resizable" placeholder="Message" onfocus="clearContents(this);"></textarea>
           </div>
           <a id='sendAnchor' class="link send-link" href="#" @click=${sendMessage}>Send</a>
         </div>
