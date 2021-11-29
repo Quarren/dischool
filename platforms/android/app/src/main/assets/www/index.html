@@ -68,12 +68,25 @@
     <div class="page">
       <div class="page-content">
         <div class="block block-strong">
+          <h1 class="pointer">ServerName</h1>
+          <br>
           <label>
-            <p>#Canal textuel n°1</p>
+            <h3 class='pointer'>#Canal textuel n°1</h3>
+          </label>
+          <br>
+          <label>
+            <h3 id="canal-vocal-1" class='pointer'>Canal vocal n°1</h3>
+            <p></p>
           </label>
           <label>
-            <p>Canal vocal</p>
+            <h3 id="canal-vocal-2" class='pointer'>Canal vocal n°2</h3>
+            <p></p>
           </label>
+          <br>
+
+          <button id="btn-add-files" class="button">Add files</button>
+          <panel id="panel-files" class="data-panel">TODO: affichage files</panel>
+          <br>
 
           <p><a href="#" class="panel-close">Close me</a></p>
         </div>
@@ -139,7 +152,7 @@
         </div>
       </div>
 
-      <p><a class="button button-fill panel-open" href="#" data-panel="#panel-nested">Nested panel</a></p>
+      <p><a class="button button-fill panel-open" href="#" data-panel="#panel-nested">Afficher les salons</a></p>
     </div>
   </div>
 </div>
@@ -224,6 +237,10 @@
                             //console.log(document.getElementById('page-messages'));
                             var msgTxtArea = document.getElementById('msg-txtarea');
                             var sendAnchor = document.getElementById('sendAnchor');
+                            var btnAddFiles = document.getElementById('btn-add-files');
+                            var canalVocal1 = document.getElementById('canal-vocal-1');
+                            var canalVocal2 = document.getElementById('canal-vocal-2');
+
                             sendAnchor.addEventListener('click', function() {
                               addMessage(msgTxtArea.value);
                               setTimeout(function() {
@@ -231,6 +248,7 @@
                               },2500);
                               clearContents(msgTxtArea);
                             });
+
                             msgTxtArea.addEventListener('keypress', function (e) {
                               if (e.key === 'Enter') {
                                 addMessage(msgTxtArea.value);
@@ -240,6 +258,24 @@
                                 clearContents(msgTxtArea);
                               }
                             });
+
+                            canalVocal1.addEventListener('click', function() {
+                              canalVocal2.parentElement.children[1].innerHTML = "";
+                              this.parentElement.children[1].innerHTML = "<i>Username</i>";
+                              navigator.vibrate(1000);
+                            });
+
+                            canalVocal2.addEventListener('click', function() {
+                              canalVocal1.parentElement.children[1].innerHTML = "";
+                              this.parentElement.children[1].innerHTML = "<i>Username</i>";
+                              navigator.vibrate(1000);
+                            });
+
+                            btnAddFiles.addEventListener('click', function() {
+                              //window.requestFileSystem(LocalFileSystem.PERSISTANT, 0); 
+
+                            });
+
                           });
                         </script>
 
