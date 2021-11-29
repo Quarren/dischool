@@ -12,6 +12,9 @@
     },
     "cordova-plugin-vibration": {
       "PACKAGE_NAME": "org.devgirl.framework7.mediaexplorer"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "org.devgirl.framework7.mediaexplorer"
     }
   },
   "dependent_plugins": {},
@@ -210,10 +213,27 @@
       "merges": [
         "navigator"
       ]
+    },
+    {
+      "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+      "id": "cordova-plugin-dialogs.notification",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "file": "plugins/cordova-plugin-dialogs/www/browser/notification.js",
+      "id": "cordova-plugin-dialogs.notification_browser",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-file": "6.0.2",
-    "cordova-plugin-vibration": "3.1.1"
+    "cordova-plugin-vibration": "3.1.1",
+    "cordova-plugin-dialogs": "2.0.2"
   }
 }

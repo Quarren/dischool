@@ -5,6 +5,9 @@
         <param name="onload" value="true" />
     </feature>
     <allow-navigation href="cdvfile:*" />
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
     <name>com.phonegap.framework7.base</name>
     <description>
         A basic Framework7 template for PhoneGap.
