@@ -68,7 +68,12 @@
     <div class="page">
       <div class="page-content">
         <div class="block block-strong">
-          <p>This is page-nested Panel.</p>
+          <label>
+            <p>#Canal textuel n°1</p>
+          </label>
+          <label>
+            <p>Canal vocal</p>
+          </label>
 
           <p><a href="#" class="panel-close">Close me</a></p>
         </div>
@@ -128,7 +133,7 @@
       <div class="toolbar messagebar">
         <div class="toolbar-inner">
           <div class="messagebar-area">
-            <textarea id='msg-txtarea' class="resizable" placeholder="Message"></textarea>
+            <textarea id='msg-txtarea' class="resizable" placeholder="Message" onfocus="clearContents(this);"></textarea>
           </div>
           <a id='sendAnchor' class="link send-link" href="#" @click=${sendMessage}>Send</a>
         </div>
@@ -224,7 +229,17 @@
                               setTimeout(function() {
                                 msgAutoReply();
                               },2500);
-                            })
+                              clearContents(msgTxtArea);
+                            });
+                            msgTxtArea.addEventListener('keypress', function (e) {
+                              if (e.key === 'Enter') {
+                                addMessage(msgTxtArea.value);
+                                setTimeout(function() {
+                                  msgAutoReply();
+                                },2500);
+                                clearContents(msgTxtArea);
+                              }
+                            });
                           });
                         </script>
 

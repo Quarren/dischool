@@ -68,7 +68,21 @@
     <div class="page">
       <div class="page-content">
         <div class="block block-strong">
-          <p>This is page-nested Panel.</p>
+          <h1>ServerName</h1>
+          <br>
+          <label>
+            <h3>#Canal textuel n°1</h3>
+          </label>
+          <br>
+          <label>
+            <h3>Canal vocal n°1</h3>
+            <label></label>
+          </label>
+          <label>
+            <h3>Canal vocal n°2</h3>
+            <p>Username</p>
+          </label>
+          <br>
 
           <p><a href="#" class="panel-close">Close me</a></p>
         </div>
@@ -224,7 +238,17 @@
                               setTimeout(function() {
                                 msgAutoReply();
                               },2500);
-                            })
+                              clearContents(msgTxtArea);
+                            });
+                            msgTxtArea.addEventListener('keypress', function (e) {
+                              if (e.key === 'Enter') {
+                                addMessage(msgTxtArea.value);
+                                setTimeout(function() {
+                                  msgAutoReply();
+                                },2500);
+                                clearContents(msgTxtArea);
+                              }
+                            });
                           });
                         </script>
 

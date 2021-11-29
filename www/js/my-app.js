@@ -74,6 +74,7 @@ function msgAutoReply() {
   var clone = document.getElementById('template-msg-recu').content.cloneNode(true);
   pageMessages.appendChild(clone);
   pageMessages.lastElementChild.children[0].children[0].children[0].innerText = reply[getRandomInt(4)];
+  navigator.vibrate(1000);
 }
 
 function clearContents(element) {
