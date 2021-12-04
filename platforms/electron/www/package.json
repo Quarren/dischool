@@ -1,0 +1,13 @@
+{
+  "main": "cdv-electron-main.js",
+  "name": "org.devgirl.framework7.mediaexplorer",
+  "displayName": "com.phonegap.framework7.base",
+  "version": "0.0.1",
+  "description": "A basic Framework7 template for PhoneGap.",
+  "homepage": "http://cordova.io",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Apache Cordova Team",
+    "email": "dev@cordova.apache.org"
+  }
+}

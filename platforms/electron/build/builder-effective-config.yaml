@@ -1,0 +1,15 @@
+directories:
+  output: 'C:\Users\durgr\Documents\MIASHS_DCISS\M2\Semestre3\IHM2\Cordova_projects\dischool_v1\platforms\electron\build'
+  buildResources: 'C:\Users\durgr\Documents\MIASHS_DCISS\M2\Semestre3\IHM2\Cordova_projects\dischool_v1\platforms\electron\build-res'
+  app: 'C:\Users\durgr\Documents\MIASHS_DCISS\M2\Semestre3\IHM2\Cordova_projects\dischool_v1\platforms\electron\www'
+appId: org.devgirl.framework7.mediaexplorer
+productName: com.phonegap.framework7.base
+electronVersion: 4.0.1
+electronDownload:
+  version: 4.0.1
+win:
+  icon: installer.png
+  target:
+    - target: nsis
+      arch:
+        - x64

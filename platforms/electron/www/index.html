@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Dischool</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link rel="stylesheet" href="lib/framework7/css/framework7.min.css">
+    <!-- Path to your custom app styles-->
+    <link href="css/style.css">
+</head>
+
+<body>
+<!-- début des templates -->
+
+<!--template login-screen-->
+<template id='login-screen-template'>
+  <div class="page-content login-screen-content">
+    <div class="login-screen-title">Dischool</div>
+      <form>
+        <div class="list">
+          <ul>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Username</div>
+                <div class="item-input-wrap">
+                  <input type="text" name="username" placeholder="Your username" />
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Password</div>
+                <div class="item-input-wrap">
+                  <input type="password" name="password" placeholder="Your password" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="list">
+          <ul>
+            <li><a href="#" id="log-in-btn" class="list-button">Log In</a></li>
+          </ul>
+          <div class="block-footer">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p><a href="#" class="link back">Close Login Screen</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<!-- template main-page -->
+<template id='main-page-template'>
+  
+  <!-- Nested panel -->
+  <div class="panel panel-left panel-cover panel-init theme-dark" id="panel-nested"
+    data-container-el="#panel-page">
+    <div class="page">
+      <div class="page-content">
+        <div class="block block-strong">
+          <h1 class="pointer">ServerName</h1>
+          <br>
+          <label>
+            <h3 class='pointer'>#Canal textuel n°1</h3>
+          </label>
+          <br>
+          <label>
+            <h3 id="canal-vocal-1" class='pointer'>Canal vocal n°1</h3>
+            <p></p>
+          </label>
+          <label>
+            <h3 id="canal-vocal-2" class='pointer'>Canal vocal n°2</h3>
+            <p></p>
+          </label>
+          <br>
+
+          <button id="btn-add-files" class="button">Add files</button>
+          <panel id="panel-files" class="data-panel">TODO: affichage files</panel>
+          <br>
+
+          <p><a href="#" class="panel-close">Close me</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+
+    <div class="page">
+      <div class="page-content messages-content">
+        <div id="page-messages" class="messages">
+          <!-- Date stamp -->
+          <div class="messages-title"><b>Sunday, Feb 9</b> 12:58</div>
+    
+          <!-- Sent message (by default - green and on right side) -->
+          <div class="message message-sent">
+            <div class="message-content">
+              <!-- Bubble with text -->
+              <div class="message-bubble">
+                <div class="message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Another sent message -->
+          <div class="message message-sent">
+            <div class="message-content">
+              <div class="message-bubble">
+                <div class="message-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Received message (by default - grey on left side) -->
+          <div class="message message-received">
+            <!-- Sender avatar -->
+            <div class="message-avatar" style="background-image:url(path/to/avatar.jpg)"></div>
+            <div class="message-content">
+              <!-- Sender name -->
+              <div class="message-name">Blue Ninja</div>
+              <!-- Bubble with text -->
+              <div class="message-bubble">
+                <div class="message-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="block block-strong">
+      <!--
+      <div class=''>
+        <p></p><input id='msg-input' class=''></p>
+      </div> 
+      -->
+      <div class="toolbar messagebar">
+        <div class="toolbar-inner">
+          <div class="messagebar-area">
+            <textarea id='msg-txtarea' class="resizable" placeholder="Message" onfocus="clearContents(this);"></textarea>
+          </div>
+          <a id='sendAnchor' class="link send-link" href="#" @click=${sendMessage}>Send</a>
+        </div>
+      </div>
+
+      <p><a class="button button-fill panel-open" href="#" data-panel="#panel-nested">Afficher les salons</a></p>
+    </div>
+  </div>
+</div>
+</div>
+</template>
+
+<!-- template msg sent -->
+<template id='template-msg-sent'>
+  <div class="message message-sent">
+    <div class="message-content">
+      <div class="message-bubble">
+        <div class="message-text"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- template msg recu -->
+<template id='template-msg-recu'>
+  <div class="message message-received">
+    <div class="message-content">
+      <!-- Bubble with text -->
+      <div class="message-bubble">
+        <div class="message-text"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- fin des templates -->
+
+
+    <div id="app">
+        <!-- Statusbar overlay -->
+        <div class="statusbar"></div>
+    
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Initial Page, "data-name" contains page name -->
+            <div data-name="home" class="page">
+    
+                <!-- Top Navbar -->
+                <div class="navbar">
+                    <div class="navbar-inner">
+                    <div class="title">Dischool</div>
+                    </div>
+                </div>
+        
+                <!-- Toolbar -->
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                    <!-- Toolbar links -->
+                    <a href="#" class="link">Link 1</a>
+                    <a href="#" class="link">Link 2</a>
+                    </div>
+                </div>
+        
+                <!-- Scrollable page content -->
+                <div id="page-content" class="page-content">
+
+                    <p>Page content goes here</p>
+
+                    <div class="page no-navbar no-toolbar no-swipeback">
+
+                        <script>
+                          var lsTemplate = document.getElementById('login-screen-template');
+                          //console.log(lsTemplate);
+                          let pageContent = document.getElementById('page-content');
+                          var mainPage = document.getElementById('main-page-template')
+                          console.log(pageContent);
+                          var clone = lsTemplate.content.cloneNode(true);
+                          pageContent.appendChild(clone);
+                          //pageContent.lastElementChild.setAttribute('id', '');
+                          var logInBtn = document.getElementById('log-in-btn');
+                          logInBtn.addEventListener('click', function() {
+                            //console.log(pageContent.lastElementChild);
+                            pageContent.removeChild(pageContent.lastElementChild);
+                            
+                            // todo : add template
+                            let clone2 = mainPage.content.cloneNode(true);
+                            pageContent.appendChild(clone2);
+                            //console.log(document.getElementById('page-messages'));
+                            var msgTxtArea = document.getElementById('msg-txtarea');
+                            var sendAnchor = document.getElementById('sendAnchor');
+                            var btnAddFiles = document.getElementById('btn-add-files');
+                            var canalVocal1 = document.getElementById('canal-vocal-1');
+                            var canalVocal2 = document.getElementById('canal-vocal-2');
+
+                            sendAnchor.addEventListener('click', function() {
+                              addMessage(msgTxtArea.value);
+                              setTimeout(function() {
+                                msgAutoReply();
+                              },2500);
+                              clearContents(msgTxtArea);
+                            });
+
+                            msgTxtArea.addEventListener('keypress', function (e) {
+                              if (e.key === 'Enter') {
+                                addMessage(msgTxtArea.value);
+                                setTimeout(function() {
+                                  msgAutoReply();
+                                },2500);
+                                clearContents(msgTxtArea);
+                              }
+                            });
+
+                            canalVocal1.addEventListener('click', function() {
+                              canalVocal2.parentElement.children[1].innerHTML = "";
+                              this.parentElement.children[1].innerHTML = "<i>Username</i>";
+                              navigator.vibrate(1000);
+                            });
+
+                            canalVocal2.addEventListener('click', function() {
+                              canalVocal1.parentElement.children[1].innerHTML = "";
+                              this.parentElement.children[1].innerHTML = "<i>Username</i>";
+                              navigator.vibrate(1000);
+                            });
+
+                            btnAddFiles.addEventListener('click', function() {
+                              //window.requestFileSystem(LocalFileSystem.PERSISTANT, 0); 
+
+                            });
+
+                          });
+                        </script>
+
+                    <!-- Link to another page -->
+                    <a href="/about/" data-view=".page-content">About app</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>
