@@ -15,6 +15,9 @@
     },
     "cordova-plugin-vibration": {
       "PACKAGE_NAME": "org.devgirl.framework7.mediaexplorer"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "org.devgirl.framework7.mediaexplorer"
     }
   },
   "dependent_plugins": {}

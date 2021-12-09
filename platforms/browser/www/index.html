@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">-->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' '; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' 'unsafe-eval';">
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#2196f3">
     <!-- Your app title -->
@@ -50,7 +52,7 @@
             <li><a href="#" id="log-in-btn" class="list-button">Log In</a></li>
           </ul>
           <div class="block-footer">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Bienvenu.e sur Dischool !</p>
             <p><a href="#" class="link back">Close Login Screen</a></p>
           </div>
         </div>
@@ -130,7 +132,7 @@
               <div class="message-name">Blue Ninja</div>
               <!-- Bubble with text -->
               <div class="message-bubble">
-                <div class="message-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                <div class="message-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat <a onclick='inAppBrowser("https\:\/\/fr.lipsum.com/")'>nulla pariatur</a>.</div>
               </div>
             </div>
           </div>
@@ -219,22 +221,20 @@
 
                         <script>
                           var lsTemplate = document.getElementById('login-screen-template');
-                          //console.log(lsTemplate);
                           let pageContent = document.getElementById('page-content');
                           var mainPage = document.getElementById('main-page-template')
                           console.log(pageContent);
                           var clone = lsTemplate.content.cloneNode(true);
                           pageContent.appendChild(clone);
-                          //pageContent.lastElementChild.setAttribute('id', '');
                           var logInBtn = document.getElementById('log-in-btn');
                           logInBtn.addEventListener('click', function() {
-                            //console.log(pageContent.lastElementChild);
                             pageContent.removeChild(pageContent.lastElementChild);
                             
                             // todo : add template
                             let clone2 = mainPage.content.cloneNode(true);
                             pageContent.appendChild(clone2);
-                            //console.log(document.getElementById('page-messages'));
+
+                            // recupréation des IDs
                             var msgTxtArea = document.getElementById('msg-txtarea');
                             var sendAnchor = document.getElementById('sendAnchor');
                             var btnAddFiles = document.getElementById('btn-add-files');
@@ -272,8 +272,7 @@
                             });
 
                             btnAddFiles.addEventListener('click', function() {
-                              //window.requestFileSystem(LocalFileSystem.PERSISTANT, 0); 
-
+                              window.requestFileSystem(LocalFileSystem.PERSISTANT, 0); 
                             });
 
                           });

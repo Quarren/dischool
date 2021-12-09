@@ -1,25 +1,22 @@
-// Initialize app
-//var myApp = new Framework7();
+
   
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
 
+// initialisation de l'app
 var app = new Framework7({
     root: '#app',
     name: 'My App',
     id: 'com.myapp.test',
-    // Enable swipe panel
     panel: {
       swipe: 'left',
     },
-    // Add default routes
     routes: [
       {
         path: '/about/',
         url: 'about.html',
       },
     ]
-    // ... other parameters
   });
 
 var mainView = app.views.create('.view-main');
@@ -45,11 +42,11 @@ $$(document).on('page:init', '.page[data-name="about"]', function (e) {
 
 // Récupération des id
 var msgSentTemplate = document.getElementById('template-msg-sent');
+var pageMessages = document.getElementById('page-messages');
+var msgSentTemp = document.getElementById('template-msg-sent');
 
 // ajoute le message tapé par l'utilisateur dans la conversation
 function addMessage(msg) {
-  var pageMessages = document.getElementById('page-messages');
-  var msgSentTemp = document.getElementById('template-msg-sent');
   var clone = msgSentTemp.content.cloneNode(true);
   pageMessages.appendChild(clone);
   console.log(pageMessages.lastElementChild.children[0].children[0].children[0]);
@@ -74,9 +71,13 @@ function msgAutoReply() {
   var clone = document.getElementById('template-msg-recu').content.cloneNode(true);
   pageMessages.appendChild(clone);
   pageMessages.lastElementChild.children[0].children[0].children[0].innerText = reply[getRandomInt(4)];
-  navigator.vibrate(1000);
+  navigator.vibrate([1000]);
 }
 
 function clearContents(element) {
   element.value = '';
+}
+
+function inAppBrowser(url) {
+  cordova.InAppBrowser.open(url, '_blank', 'location=yes');
 }
