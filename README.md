@@ -14,3 +14,5 @@ Construit avec Apache Cordova et le framework js Framework7 (https://framework7.
   <li>cordova run android --emulator</li> // si plateforme android installée et emulateur configuré avec AndroidStudio
   <li>cordova run browser --target=Chrome</li> // si plateforme browser installée
  </ul>
+ 
+ <br>A noter : chaque plugin n'est pas forcément supporté par toutes les plateformes, ni par tous les navigateurs (voir la documentation Cordova pour plus d'informations à ce sujet).
