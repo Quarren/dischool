@@ -50,7 +50,7 @@
             <li><a href="#" id="log-in-btn" class="list-button">Log In</a></li>
           </ul>
           <div class="block-footer">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Welcome to Dischool !</p>
             <p><a href="#" class="link back">Close Login Screen</a></p>
           </div>
         </div>
@@ -123,8 +123,6 @@
 
           <!-- Received message (by default - grey on left side) -->
           <div class="message message-received">
-            <!-- Sender avatar -->
-            <div class="message-avatar" style="background-image:url(path/to/avatar.jpg)"></div>
             <div class="message-content">
               <!-- Sender name -->
               <div class="message-name">Blue Ninja</div>
@@ -174,6 +172,7 @@
 <template id='template-msg-recu'>
   <div class="message message-received">
     <div class="message-content">
+      <div class="message-name">Blue Ninja</div>
       <!-- Bubble with text -->
       <div class="message-bubble">
         <div class="message-text"></div>
@@ -261,13 +260,13 @@
 
                             canalVocal1.addEventListener('click', function() {
                               canalVocal2.parentElement.children[1].innerHTML = "";
-                              this.parentElement.children[1].innerHTML = "<i>Username</i>";
+                              this.parentElement.children[1].innerHTML = "<i>myUsername</i>";
                               navigator.vibrate(1000);
                             });
 
                             canalVocal2.addEventListener('click', function() {
                               canalVocal1.parentElement.children[1].innerHTML = "";
-                              this.parentElement.children[1].innerHTML = "<i>Username</i>";
+                              this.parentElement.children[1].innerHTML = "<i>myUsername</i>";
                               navigator.vibrate(1000);
                             });
 
