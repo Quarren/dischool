@@ -73,7 +73,8 @@ function msgAutoReply() {
   var pageMessages = document.getElementById('page-messages');
   var clone = document.getElementById('template-msg-recu').content.cloneNode(true);
   pageMessages.appendChild(clone);
-  pageMessages.lastElementChild.children[0].children[0].children[0].innerText = reply[getRandomInt(4)];
+  console.log(pageMessages.lastElementChild.children[0].children[1].children[0]);
+  pageMessages.lastElementChild.children[0].children[1].children[0].innerText = reply[getRandomInt(4)];
   navigator.vibrate(1000);
 }
 

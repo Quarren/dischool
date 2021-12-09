@@ -172,6 +172,7 @@
 <template id='template-msg-recu'>
   <div class="message message-received">
     <div class="message-content">
+      <div class="message-name">Blue Ninja</div>
       <!-- Bubble with text -->
       <div class="message-bubble">
         <div class="message-text"></div>
@@ -259,13 +260,13 @@
 
                             canalVocal1.addEventListener('click', function() {
                               canalVocal2.parentElement.children[1].innerHTML = "";
-                              this.parentElement.children[1].innerHTML = "<i>Username</i>";
+                              this.parentElement.children[1].innerHTML = "<i>myUsername</i>";
                               navigator.vibrate(1000);
                             });
 
                             canalVocal2.addEventListener('click', function() {
                               canalVocal1.parentElement.children[1].innerHTML = "";
-                              this.parentElement.children[1].innerHTML = "<i>Username</i>";
+                              this.parentElement.children[1].innerHTML = "<i>myUsername</i>";
                               navigator.vibrate(1000);
                             });
 
