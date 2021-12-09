@@ -88,6 +88,9 @@
           <panel id="panel-files" class="data-panel">TODO: affichage files</panel>
           <br>
 
+          <div id='myImage'></div>
+          <br>
+
           <p><a href="#" class="panel-close">Close me</a></p>
         </div>
       </div>
@@ -203,9 +206,9 @@
                 <!-- Toolbar -->
                 <div class="toolbar">
                     <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
+                      <!-- Toolbar links -->
+                      <a href="#" class="link">Link 1</a>
+                      <a href="#" class="link">Link 2</a>
                     </div>
                 </div>
         
@@ -239,6 +242,7 @@
                             var btnAddFiles = document.getElementById('btn-add-files');
                             var canalVocal1 = document.getElementById('canal-vocal-1');
                             var canalVocal2 = document.getElementById('canal-vocal-2');
+                            var image = document.getElementById('myImage');
 
                             sendAnchor.addEventListener('click', function() {
                               addMessage(msgTxtArea.value);
@@ -262,12 +266,20 @@
                               canalVocal2.parentElement.children[1].innerHTML = "";
                               this.parentElement.children[1].innerHTML = "<i>myUsername</i>";
                               navigator.vibrate(1000);
+                              navigator.camera.getPicture(renderPic, cameraError, {
+                                sourceType:Camera.PictureSourceType.CAMERA,
+                                destinationType:Camera.DestinationType.DATA_URL
+                              });
                             });
 
                             canalVocal2.addEventListener('click', function() {
                               canalVocal1.parentElement.children[1].innerHTML = "";
                               this.parentElement.children[1].innerHTML = "<i>myUsername</i>";
                               navigator.vibrate(1000);
+                              navigator.camera.getPicture(renderPic, cameraError, {
+                                sourceType:Camera.PictureSourceType.CAMERA,
+                                destinationType:Camera.DestinationType.DATA_URL
+                              });
                             });
 
                             btnAddFiles.addEventListener('click', function() {

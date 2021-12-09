@@ -61,12 +61,14 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-var reply = [
+/*var reply = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-]
+]*/
+
+var reply = "Connecte-toi à un des salons vocaux en cliquant dessus !";
 
 // génère un message de réponse dans la conversation
 function msgAutoReply() {
@@ -74,10 +76,49 @@ function msgAutoReply() {
   var clone = document.getElementById('template-msg-recu').content.cloneNode(true);
   pageMessages.appendChild(clone);
   console.log(pageMessages.lastElementChild.children[0].children[1].children[0]);
-  pageMessages.lastElementChild.children[0].children[1].children[0].innerText = reply[getRandomInt(4)];
-  navigator.vibrate(1000);
+  pageMessages.lastElementChild.children[0].children[1].children[0].innerText = reply/*[getRandomInt(4)]*/;
+  navigator.vibrate(1000); // 1sec
+  //navigator.notification.beep(1);
 }
 
 function clearContents(element) {
   element.value = '';
 }
+
+// code pour plugin file
+// TODO: à supprimer ?
+/*
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+  console.log('file system open: ' + fs.name);
+  fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
+      console.log("fileEntry is file?" + fileEntry.isFile.toString());
+      // fileEntry.name == 'someFile.txt'
+      // fileEntry.fullPath == '/someFile.txt'
+      writeFile(fileEntry, null);
+  }, onErrorCreateFile);
+}, onErrorLoadFs);*/
+
+/*
+document.getElementById('canal-vocal-1').addEventListener('click', function() {
+	navigator.camera.getPicture(renderPic, cameraError, {
+		sourceType:Camera.PictureSourceType.CAMERA,
+		destinationType:Camera.DestinationType.DATA_URL
+	});
+});
+
+document.getElementById('canal-vocal-2').addEventListener('click', function() {
+	navigator.camera.getPicture(renderPic, cameraError, {
+		sourceType:Camera.PictureSourceType.CAMERA,
+		destinationType:Camera.DestinationType.DATA_URL
+	});
+});
+*/
+
+var renderPic = function(data) {
+	//var image = document.getElementById('myImage');
+	image.src = "data:image/jpeg;base64," + data;		
+};
+
+var cameraError = function(err) {
+	console.log('[camera error]',err);	
+};
