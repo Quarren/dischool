@@ -9,4 +9,4 @@ Construit avec Apache Cordova et le framework js Framework7 (https://framework7.
   <li>etc</li>
  </ul>
  et les exécuter avec la commande suivante :
- <br>cordova run <platform>
+ <br>cordova run *platform*
